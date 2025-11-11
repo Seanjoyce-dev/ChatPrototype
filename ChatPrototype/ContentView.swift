@@ -27,10 +27,19 @@ struct ChatBubble: View {
     }
 
     var body: some View {
-        Text(message)
-            .padding()
-            .background(bubbleColor, in: RoundedRectangle(cornerRadius: 8))
-            .shadow(radius: 8)
+        HStack {
+            if isSender {
+                Spacer()
+            }
+            Text(message)
+                .padding()
+                .background(bubbleColor, in: RoundedRectangle(cornerRadius: 8))
+                .shadow(radius: 8)
+            
+            if !isSender {
+                Spacer()
+            }
+        }
     }
 }
 
